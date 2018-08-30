@@ -1,6 +1,6 @@
 # ws-jersey-e-hibernate
 
-Exemplo de Web API desenvolvido em JAVA com as seguintes tecnolgias:
+Exemplo de Web API desenvolvido em JAVA com as seguintes tecnologias:
 
 * Java 8
 * Jersey (RESTful Web Services)
@@ -8,3 +8,4 @@ Exemplo de Web API desenvolvido em JAVA com as seguintes tecnolgias:
 * MySQL Community Server 8.0.12
 * Maven 3
 * Postman (para testes da API)
+* Eclipse Oxygen
