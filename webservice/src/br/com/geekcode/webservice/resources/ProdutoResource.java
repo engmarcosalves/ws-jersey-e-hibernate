@@ -42,14 +42,17 @@ public class ProdutoResource {
 	
 	@PUT
 	@Path("{produtoId}")
-	public void update(@PathParam("produtoId") long id, Produto produto) {
+	@Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public Produto update(@PathParam("produtoId") long id, Produto produto) {
 		produto.setId(id);
-		service.updateProduto(produto);
+		return service.updateProduto(produto);
 	}
 	
 	@DELETE
 	@Path("{produtoId}")
-	public void delete(@PathParam("produtoId") long id) {
-		service.deleteProduto(id);
+	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+	public Produto delete(@PathParam("produtoId") long id) {
+		return service.deleteProduto(id);
 	}
 }
