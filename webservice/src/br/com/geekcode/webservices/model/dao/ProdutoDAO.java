@@ -3,7 +3,6 @@ package br.com.geekcode.webservices.model.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-
 import br.com.geekcode.webservices.exceptions.DAOException;
 import br.com.geekcode.webservices.exceptions.ErrorCode;
 import br.com.geekcode.webservices.model.domain.Produto;
@@ -151,5 +150,52 @@ public class ProdutoDAO {
 		}		
 
 		return true;
+	}
+	
+	public List<Produto> getByPagination(int firstResult, int maxResults) {
+		List<Produto> produtos;
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		try {
+			produtos = em.createQuery("select p from Produto p", Produto.class)
+					.setFirstResult(firstResult -1)
+					.setMaxResults(maxResults)
+					.getResultList();
+			
+		} catch (RuntimeException e) {
+			throw new DAOException("Erro ao buscar produtos no banco de dados: " + e.getMessage(), ErrorCode.NOT_FOUND.getCode());
+						
+		} finally {
+			em.close();
+		}
+		
+		if (produtos.isEmpty()) {
+			throw new DAOException("Página com produtos vazia.", ErrorCode.NOT_FOUND.getCode());
+		}
+		
+		return produtos;
+	}
+	
+	public List<Produto> getByName(String name) {
+		EntityManager em = JPAUtil.getEntityManager();
+		List<Produto> produtos = null;
+		
+		try {
+			produtos = em.createQuery("select p from Produto p where p.nome like :name", Produto.class)
+					.setParameter("name", "%" + name + "%")
+					.getResultList();			
+			
+		} catch (RuntimeException e) {
+			throw new DAOException("Erro ao buscar produtos por nome no banco de dados: " + e.getMessage(), ErrorCode.SERVER_ERROR.getCode());
+			
+		} finally {
+			em.close();
+		}
+		
+		if (produtos.isEmpty()) {
+			throw new DAOException("A consulta não encontrou produtos.", ErrorCode.NOT_FOUND.getCode());
+		}
+		
+		return produtos;
 	}
 }
