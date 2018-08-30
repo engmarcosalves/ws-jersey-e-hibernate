@@ -1,4 +1,4 @@
-package br.com.geekcode.webservices.model.domain;
+package br.com.geekcode.webservice.model.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

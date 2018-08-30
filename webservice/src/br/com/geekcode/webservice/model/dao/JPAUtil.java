@@ -1,4 +1,4 @@
-package br.com.geekcode.webservices.model.dao;
+package br.com.geekcode.webservice.model.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

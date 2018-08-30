@@ -1,9 +1,9 @@
-package br.com.geekcode.webservices.service;
+package br.com.geekcode.webservice.service;
 
 import java.util.List;
 
-import br.com.geekcode.webservices.model.dao.ProdutoDAO;
-import br.com.geekcode.webservices.model.domain.Produto;
+import br.com.geekcode.webservice.model.dao.ProdutoDAO;
+import br.com.geekcode.webservice.model.domain.Produto;
 
 public class ProdutoService {
 	

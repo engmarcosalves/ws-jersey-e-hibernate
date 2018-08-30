@@ -1,4 +1,4 @@
-package br.com.geekcode.webservices.exceptions;
+package br.com.geekcode.webservice.exceptions;
 
 public enum ErrorCode {
 	

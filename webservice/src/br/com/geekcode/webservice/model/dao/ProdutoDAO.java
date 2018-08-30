@@ -1,11 +1,12 @@
-package br.com.geekcode.webservices.model.dao;
+package br.com.geekcode.webservice.model.dao;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import br.com.geekcode.webservices.exceptions.DAOException;
-import br.com.geekcode.webservices.exceptions.ErrorCode;
-import br.com.geekcode.webservices.model.domain.Produto;
+
+import br.com.geekcode.webservice.exceptions.DAOException;
+import br.com.geekcode.webservice.exceptions.ErrorCode;
+import br.com.geekcode.webservice.model.domain.Produto;
 
 public class ProdutoDAO {
 	
