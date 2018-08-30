@@ -8,3 +8,4 @@ Exemplo de Web API desenvolvido em JAVA com as seguintes tecnolgias:
 * MySQL Community Server 8.0.12
 * Maven 3
 * Postman (para testes da API)
+* Eclipse Oxygen
