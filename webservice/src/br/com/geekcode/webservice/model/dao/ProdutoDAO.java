@@ -46,7 +46,7 @@ public class ProdutoDAO {
 		}
 		
 		if (produto == null) {
-			throw new DAOException("Produto de id " + id + " n„o existe.", ErrorCode.NOT_FOUND.getCode());
+			throw new DAOException("Produto de id " + id + " n√£o existe.", ErrorCode.NOT_FOUND.getCode());
 		}
 		
 		return produto;
@@ -96,7 +96,7 @@ public class ProdutoDAO {
 			
 		} catch (NullPointerException e) {
 			em.getTransaction().rollback();
-			throw new DAOException("Produto informado para atualizaÁ„o n„o existe: " + e.getMessage(), ErrorCode.NOT_FOUND.getCode());
+			throw new DAOException("Produto informado para atualiza√ß√£o n√£o existe: " + e.getMessage(), ErrorCode.NOT_FOUND.getCode());
 			
 		} catch (RuntimeException e) {
 			em.getTransaction().rollback();
@@ -126,7 +126,7 @@ public class ProdutoDAO {
 			
 		} catch (IllegalArgumentException e) {
 			em.getTransaction().rollback();
-			throw new DAOException("Produto informado para a remoÁ„o n„o existe: " + e.getMessage(), ErrorCode.NOT_FOUND.getCode());
+			throw new DAOException("Produto informado para a remo√ß√£o n√£o existe: " + e.getMessage(), ErrorCode.NOT_FOUND.getCode());
 			
 		} catch (RuntimeException e) {
 			em.getTransaction().rollback();
@@ -142,7 +142,7 @@ public class ProdutoDAO {
 	private boolean produtoIsValid(Produto produto) {
 		
 		try {
-			if ((produto.getNome().isEmpty())  || (produto.getQuantidade() < 0)) {
+			if ((produto.getNome() == null || produto.getNome().isEmpty() || produto.getQuantidade() < 0)) {
 				return false;
 			}
 			
@@ -171,7 +171,7 @@ public class ProdutoDAO {
 		}
 		
 		if (produtos.isEmpty()) {
-			throw new DAOException("P·gina com produtos vazia.", ErrorCode.NOT_FOUND.getCode());
+			throw new DAOException("P√°gina com produtos vazia.", ErrorCode.NOT_FOUND.getCode());
 		}
 		
 		return produtos;
@@ -194,7 +194,7 @@ public class ProdutoDAO {
 		}
 		
 		if (produtos.isEmpty()) {
-			throw new DAOException("A consulta n„o encontrou produtos.", ErrorCode.NOT_FOUND.getCode());
+			throw new DAOException("A consulta n√£o encontrou produtos.", ErrorCode.NOT_FOUND.getCode());
 		}
 		
 		return produtos;
